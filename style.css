@@ -1,0 +1,133 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing: border-box;
+}
+body{
+    font-family: 'Poppins', sans-serif;
+}
+
+/*=============== layout design or styling================= */
+
+.main{
+    width:100%;
+    height: 100vh;
+    background-color: rgb(240, 240, 240);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.center_div{
+    position: relative;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 5px;
+    width:320px;
+}
+.content{
+    margin-top: 30px;
+}
+.center_div .menu_btn{
+    position: absolute;
+    right:20px;
+    top:20px;
+    font-size: 1.3rem;
+    cursor: pointer;
+}
+.center_div .bgColors{
+    position: absolute;
+    top:20px;
+    right:50px;
+    display: inline-block;
+    background-color: rgb(217, 222, 236);
+    padding:15px;
+    border-radius: 5px;
+    transform: translateX(20px);
+    visibility: hidden;
+    opacity: 0;
+}
+.bgColors h6{
+    font-size: 12px;
+    text-transform: uppercase;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 5px;
+    letter-spacing: 1px;
+    color:rgb(90, 100, 189);
+}
+.colors{
+    display: flex;
+    align-items: center;
+    column-gap: 8px;
+    margin-top: 10px;
+}
+.colors .color{
+    width:14px;
+    height: 14px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+.colors .black{
+    background-color: #2b2b2b;
+}
+.colors .white{
+    background-color: #fff;
+}
+.colors .green{
+    background-color: rgb(52, 196, 124);
+}
+
+
+/*================ input form design ================ */
+
+.input_form{
+    background-color: #2b2b2b;
+}
+.recent_result{
+    position: relative;
+    width:100%;
+    height: 100px;
+    background-color: rgb(148, 129, 129);
+    overflow-y: auto;
+    text-align: right;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    font-size: 1.2rem;
+    font-weight: 700;
+}
+.recent_result::-webkit-scrollbar{
+    width: 0;
+}
+.form-group{
+    margin: 0;
+}
+.form-group #input_field{
+    width:100%;
+    height: 30px;
+    border: none;
+    outline: none;
+    text-align: right;
+    background-color: aqua;
+}
+
+/*================ input button design ================ */
+
+.input_btn{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 2px;
+    margin-top: 20px;
+}
+.input_btn button{
+    height: 45px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    font-size: 1.2rem;
+    color:#412d72;
+}
+.equal{
+    grid-column: span 2;
+}
