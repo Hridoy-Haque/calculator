@@ -9,23 +9,36 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 
+/*=============== DICLEAR VERIABLES ================= */
+:root{
+    --bg-color:#540f8d;
+    --btn-color-white:#4f1ab1;
+    --white:#fff;
+    --blue: #15172e;
+    --light-blue: #4c4aaf;
+    --icon-black : #000;
+    --inp-form-white : #f0f2f3;
+    --inp-form-dark : #191b31;
+    --inp-form-light : #4443a7;
+}
+
 /*=============== layout design or styling================= */
 
 .main{
     width:100%;
     height: 100vh;
-    background-color: rgb(240, 240, 240);
+    background-color: var(--bg-color);
     display: flex;
     justify-content: center;
     align-items: center;
 }
 .center_div{
     position: relative;
-    background-color: #fff;
     padding: 20px;
     border-radius: 5px;
     width:320px;
 }
+
 .content{
     margin-top: 30px;
 }
@@ -82,13 +95,12 @@ body{
 /*================ input form design ================ */
 
 .input_form{
-    background-color: #2b2b2b;
+    padding: 0 5px;
 }
 .recent_result{
     position: relative;
     width:100%;
     height: 100px;
-    background-color: rgb(148, 129, 129);
     overflow-y: auto;
     text-align: right;
     display: flex;
@@ -96,6 +108,7 @@ body{
     justify-content: flex-end;
     font-size: 1.2rem;
     font-weight: 700;
+
 }
 .recent_result::-webkit-scrollbar{
     width: 0;
@@ -105,11 +118,13 @@ body{
 }
 .form-group #input_field{
     width:100%;
-    height: 30px;
+    height: 45px;
     border: none;
     outline: none;
     text-align: right;
-    background-color: aqua;
+    background-color: transparent;
+    color:var(--blue);
+    font-size: 1rem;
 }
 
 /*================ input button design ================ */
@@ -126,8 +141,91 @@ body{
     outline: none;
     cursor: pointer;
     font-size: 1.2rem;
-    color:#412d72;
+    
+    transition: .3s;
 }
+
 .equal{
     grid-column: span 2;
+}
+
+
+
+/*====== background changes ==============  */
+
+
+/*======= white background ============== */
+.center_div.bg-white{
+    background-color: var(--white);
+}
+.bg-white .menu_btn{
+    color: var(--icon-black);
+}
+.bg-white .input_form{
+    background-color: var(--inp-form-white);
+}
+.bg-white .recent_result{
+    background-color: var(--inp-form-white);
+    color:var(--blue);
+}
+.bg-white #input_field{
+    color: var(--blue);
+}
+.bg-white .input_btn button{
+    background-color: #ededf3;
+    color:var(--btn-color-white);
+}
+.bg-white .input_btn button:hover{
+    background-color: #e3dfec;
+    /* color:#fff; */
+}
+/*======= white background ============== */
+.center_div.bg-white{
+    background-color: var(--white);
+}
+.bg-white .menu_btn{
+    color: var(--icon-black);
+}
+.bg-white .input_form{
+    background-color: var(--inp-form-white);
+}
+.bg-white .recent_result{
+    background-color: var(--inp-form-white);
+    color:var(--blue);
+}
+.bg-white #input_field{
+    color: var(--blue);
+}
+.bg-white .input_btn button{
+    background-color: #ededf3;
+    color:var(--btn-color-white);
+}
+.bg-white .input_btn button:hover{
+    background-color: #e3dfec;
+    /* color:#fff; */
+}
+/*======= white background ============== */
+.center_div.bg-white{
+    background-color: var(--white);
+}
+.bg-white .menu_btn{
+    color: var(--icon-black);
+}
+.bg-white .input_form{
+    background-color: var(--inp-form-white);
+}
+.bg-white .recent_result{
+    background-color: var(--inp-form-white);
+    color:var(--blue);
+}
+.bg-white #input_field{
+    color: var(--blue);
+}
+.bg-white .input_btn button{
+    background-color: #ededf3;
+    color:var(--btn-color-white);
+}
+.bg-white .input_btn button:hover{
+    background-color: #e3dfec;
+    /* color:#fff; */
 }
