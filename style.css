@@ -15,6 +15,11 @@ body{
     --btn-color-white:#4f1ab1;
     --white:#fff;
     --blue: #15172e;
+    --btn-white: #ededf3;
+    --btn-white-hover: #e1e1ec;
+    --btn-blue: #191b33;
+    --btn-blue-hover:#1d1f3a;
+    --btn-light-hover:#3b3a99;
     --light-blue: #4c4aaf;
     --icon-black : #000;
     --inp-form-white : #f0f2f3;
@@ -42,6 +47,10 @@ body{
 .content{
     margin-top: 30px;
 }
+
+
+/* design for calculator background color  */
+
 .center_div .menu_btn{
     position: absolute;
     right:20px;
@@ -49,6 +58,7 @@ body{
     font-size: 1.3rem;
     cursor: pointer;
 }
+
 .center_div .bgColors{
     position: absolute;
     top:20px;
@@ -58,8 +68,15 @@ body{
     padding:15px;
     border-radius: 5px;
     transform: translateX(20px);
+    transition: .4s;
     visibility: hidden;
     opacity: 0;
+    z-index: 1;
+}
+.bgColors.show{
+    transform: translateX(0);
+    visibility: visible;
+    opacity: 1;
 }
 .bgColors h6{
     font-size: 12px;
@@ -81,14 +98,14 @@ body{
     border-radius: 50%;
     cursor: pointer;
 }
-.colors .black{
-    background-color: #2b2b2b;
+.colors .blue{
+    background-color: var(--blue);
 }
 .colors .white{
-    background-color: #fff;
+    background-color: var(--white);
 }
-.colors .green{
-    background-color: rgb(52, 196, 124);
+.colors .light{
+    background-color: var(--light-blue);
 }
 
 
@@ -108,7 +125,18 @@ body{
     justify-content: flex-end;
     font-size: 1.2rem;
     font-weight: 700;
-
+}
+.recent_result .reset{
+    position: absolute;
+    left:10px;
+    bottom:0;
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+}
+.recent_result .reset.active{
+    visibility: visible;
+    opacity: 1;
 }
 .recent_result::-webkit-scrollbar{
     width: 0;
@@ -172,60 +200,58 @@ body{
     color: var(--blue);
 }
 .bg-white .input_btn button{
-    background-color: #ededf3;
+    background-color: var(--btn-white);
     color:var(--btn-color-white);
 }
 .bg-white .input_btn button:hover{
-    background-color: #e3dfec;
+    background-color: var(--btn-white-hover);
     /* color:#fff; */
 }
 /*======= white background ============== */
-.center_div.bg-white{
-    background-color: var(--white);
+.center_div.bg-blue{
+    background-color: var(--blue);
 }
-.bg-white .menu_btn{
-    color: var(--icon-black);
+.bg-blue .menu_btn{
+    color: var(--white);
 }
-.bg-white .input_form{
-    background-color: var(--inp-form-white);
+.bg-blue .input_form{
+    background-color: var(--inp-form-dark);
 }
-.bg-white .recent_result{
-    background-color: var(--inp-form-white);
-    color:var(--blue);
+.bg-blue .recent_result{
+    color:var(--white);
 }
-.bg-white #input_field{
-    color: var(--blue);
+.bg-blue #input_field{
+    color: var(--white);
 }
-.bg-white .input_btn button{
-    background-color: #ededf3;
-    color:var(--btn-color-white);
+.bg-blue .input_btn button{
+    background-color: var(--btn-blue);
+    color:var(--white);
 }
-.bg-white .input_btn button:hover{
-    background-color: #e3dfec;
+.bg-blue .input_btn button:hover{
+    background-color: var(--btn-blue-hover);
     /* color:#fff; */
 }
 /*======= white background ============== */
-.center_div.bg-white{
-    background-color: var(--white);
+.center_div.bg-light-blue{
+    background-color: var(--light-blue);
 }
-.bg-white .menu_btn{
-    color: var(--icon-black);
+.bg-light-blue .menu_btn{
+    color: var(--white);
 }
-.bg-white .input_form{
-    background-color: var(--inp-form-white);
+.bg-light-blue .input_form{
+    background-color: var(--inp-form-light);
 }
-.bg-white .recent_result{
-    background-color: var(--inp-form-white);
-    color:var(--blue);
+.bg-light-blue .recent_result{
+    color:var(--white);
 }
-.bg-white #input_field{
-    color: var(--blue);
+.bg-light-blue #input_field{
+    color: var(--white);
 }
-.bg-white .input_btn button{
-    background-color: #ededf3;
-    color:var(--btn-color-white);
+.bg-light-blue .input_btn button{
+    background-color: var(--inp-form-light);
+    color:var(--white);
 }
-.bg-white .input_btn button:hover{
-    background-color: #e3dfec;
+.bg-light-blue .input_btn button:hover{
+    background-color: var(--btn-light-hover);
     /* color:#fff; */
 }
