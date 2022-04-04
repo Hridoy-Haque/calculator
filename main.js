@@ -62,7 +62,8 @@ window.onload = () => {
     })
 
     //SET INPUT FIELD
-    var dot = 0
+    let dot = 0
+    let count = 0
     var values = ''
     let calArr = []
 
@@ -93,25 +94,12 @@ window.onload = () => {
     }
 
     function setOperation(value){
+        count++
         if(input.value.charAt(input.value.length-1) === '.'){
             input.value += '0'
         }
         let val = input.value
         let len = val.length - 1
-        // let cal = ''
-        // let result = 0
-        // if(value === '%'){
-        //     for (let i = len; i >= 0 ; i--) {
-        //         if(input.value.charAt(i) === '/' || input.value.charAt(i) === 'x' || input.value.charAt(i) === '-'|| input.value.charAt(i) === '+' ){
-        //             break
-        //         }else{
-        //             cal += input.value.charAt(i) 
-        //         }
-        //     }
-        //    cal = Number.parseInt(cal.split("").reverse().join(""));
-        //    console.log(cal)
-           
-        // }
 
         if(val.charAt(len) === '/' || val.charAt(len) === 'x' || val.charAt(len) === '-'|| val.charAt(len) === '+' ){
             val = val.slice(0,-1)
@@ -119,14 +107,35 @@ window.onload = () => {
         }else{
             input.value += value
         }
+
+        if(count < 2){
+            calArr.push(values)
+            calArr.push(value)
+        }
+
+
+        if(value === '%'){
+            count = 0
+            let arrLen = calArr.length-2
+            
+            if(calArr[arrLen] === '' || calArr[arrLen] === '0'){
+
+            }else{
+                let parcent = Number.parseInt(calArr[arrLen])
+                let res = Number.parseFloat(parcent / 100)
+                calArr.pop()
+                calArr.pop()
+                calArr.push(res.toString())
+                input.value = calArr.join('')
+
+            }
+            
+        }
         values = ''
     }
 
 
     function setNumber(value){
-
-
-        
 
         if(value === '.'){
             dot++
@@ -144,7 +153,7 @@ window.onload = () => {
             input.value += value
         }
         values += value
-
+        count = 0
     }
 
     function setResult(value){
