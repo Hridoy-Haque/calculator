@@ -70,14 +70,16 @@ window.onload = () => {
     function setField(value){
         if(value === 'ac'){
             input.value = '0'
+            calArr = []
         }else if(value === 'clear'){
             clearLast(input.value)
         }else if(value === '%' || value === '/' || value === 'x' || value === '-'|| value === '+' ){
 
-           dot = 0
+            dot = 0
             setOperation(value)
         }else if( value === '='){
 
+            count = 0
             dot = 0
             setResult(input.value)
         }else{
@@ -101,35 +103,27 @@ window.onload = () => {
         let val = input.value
         let len = val.length - 1
 
-        if(val.charAt(len) === '/' || val.charAt(len) === 'x' || val.charAt(len) === '-'|| val.charAt(len) === '+' ){
+        if(checkParamiter(val.charAt(len))){
             val = val.slice(0,-1)
             input.value = val + value
+
+
         }else{
             input.value += value
         }
 
         if(count < 2){
-            calArr.push(values)
-            calArr.push(value)
+            calArr = input.value.split(/[+-/x]/)
+            
+            console.log(calArr)
+            // console.log(values)
+            // calArr.push(values)
+            // calArr.push(value)
         }
 
 
         if(value === '%'){
-            count = 0
-            let arrLen = calArr.length-2
-            
-            if(calArr[arrLen] === '' || calArr[arrLen] === '0'){
-
-            }else{
-                let parcent = Number.parseInt(calArr[arrLen])
-                let res = Number.parseFloat(parcent / 100)
-                calArr.pop()
-                calArr.pop()
-                calArr.push(res.toString())
-                input.value = calArr.join('')
-
-            }
-            
+            percent()
         }
         values = ''
     }
@@ -156,7 +150,35 @@ window.onload = () => {
         count = 0
     }
 
+    function percent(){
+        count = 0
+        let arrLen = calArr.length-2
+        if(calArr[0] !== '' && calArr[0] !== '0'){
+
+            let parcent = Number.parseInt(calArr[arrLen])
+            let res = Number.parseFloat(parcent / 100)
+            calArr.pop()
+            calArr.pop()
+            calArr.push(res.toString())
+            input.value = calArr.join('')
+
+            // console.log(input)
+        }else{     
+
+            input.value = '0'
+            calArr = []
+            
+        }
+    }
+
     function setResult(value){
-        console.log(value)
+        
+    }
+
+    function checkParamiter(value){
+        if(value === '/' || value === 'x' || value === '-'|| value === '+' ){
+            return true
+        }
+        return false
     }
 }
