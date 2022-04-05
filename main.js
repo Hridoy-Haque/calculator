@@ -50,7 +50,7 @@ window.onload = () => {
     const inp_btn = document.querySelector('.input_btn'),
           btns = document.querySelectorAll('.input_btn button'),
           input = document.getElementById('input_field'),
-          recent = document.getElementById('setResult'),
+          recent = document.getElementById('recent_result'),
           reset = document.querySelector('.reset')
 
     
