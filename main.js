@@ -102,20 +102,15 @@ window.onload = () => {
         if(checkParamiter(val.charAt(len))){
             val = val.slice(0,-1)
             input.value = val + value
-
-
         }else{
             input.value += value
         }
 
-        if(value === '%'){
-            percent()
-        }
     }
 
 
     function setNumber(value){
-
+        let len = input.value.length - 1
         if(value === '.'){
             dot++
         }
@@ -128,24 +123,84 @@ window.onload = () => {
             }else{
                 input.value = value
             }
-        }else{
+        }else if(input.value.charAt(len) === '%'){
+            input.value += 'x' + value
+        }
+        else{
             input.value += value
         }
         
-    }
-
-    function percent(){
-        
-    }
-
-    function setResult(value){
         
     }
 
     function checkParamiter(value){
-        if(value === '/' || value === 'x' || value === '-'|| value === '+' ){
+        if(value === '/' || value === 'x' || value === '-'|| value === '+'){
             return true
         }
         return false
     }
+
+    function setResult(value){
+        let store = ''
+        let count = 0
+        let number = 0
+        let op = '+'
+        let ans = 0
+        for (let i = 0; i < value.length; i++) {
+            while((value.charAt(i) <= '9' && value.charAt(i) >= '0') || value.charAt(i) === '.' || value.charAt(i) === '%'){
+                store += value.charAt(i)
+                i++
+            }
+
+            if(store.charAt(store.length - 1) === '%'){
+                count++
+                store = store.slice(0,-1)
+                if(ans === 0){
+                    number = Number.parseFloat(store) / 100
+                }else{
+                    number = ans * (Number.parseFloat(store)) / 100
+                }
+
+            }else{
+                number = Number.parseFloat(store)
+            }
+            
+
+            console.log(number +'ans -- ' + op)
+
+            if(op === '+'){
+                ans += number
+            }else if(op === '-'){
+                ans -= number
+            }else if(op === 'x'){
+                if(count !== 0){
+                    ans = number
+                }else{
+                    ans *= number
+                }
+            }else if(op === '/'){
+                ans /= number
+            }
+            
+            // if(op === '%'){
+            //         console.log(store + 'th')
+            // }
+            // else{
+            //     console.log(store + 'th')
+            // }
+
+            // console.log(number+" "+ans)
+            console.log(op)
+            console.log('ans = '+ans)
+            store = ''
+            number = 0
+            if(count === 0){
+                op = value.charAt(i)
+            }
+            
+            // while(value.charAt)
+        }
+        
+    }
+
 }
