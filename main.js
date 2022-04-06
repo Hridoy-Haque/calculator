@@ -70,7 +70,7 @@ window.onload = () => {
     // ================= REACTION ON WHENT BUTTONS ARE CLICK ================= //
 
     let dot = 0
-
+    let zeroIn = false
     function setField(value){
         if(value === 'ac'){
             input.value = '0'
@@ -79,11 +79,19 @@ window.onload = () => {
             clearLast(input.value)
         }else if(checkParamiter(value)){
             dot = 0
+            if(zeroIn){
+                input.value = 0;
+                zeroIn = false
+            }
             setOperation(value)
         }else if( value === '='){
             dot = 0
             setResult(input.value)
         }else{
+            if(zeroIn){
+                input.value = 0;
+                zeroIn = false
+            }
             setNumber(value)
         }
     }
@@ -199,6 +207,7 @@ window.onload = () => {
             input.value = newVal.toString()
             recent.innerHTML += `${value} = <br> ${newVal} <br>`
             reset.classList.add('active')
+            zeroIn = true
         }
         
     }
