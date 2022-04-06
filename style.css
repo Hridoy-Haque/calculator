@@ -20,14 +20,14 @@ body{
     --btn-blue: #191b33;
     --btn-blue-hover:#1d1f3a;
     --btn-light-hover:#3b3a99;
-    --light-blue: #4c4aaf;
+    --light-blue: #271d7c;
     --icon-black : #000;
     --inp-form-white : #f0f2f3;
     --inp-form-dark : #191b31;
-    --inp-form-light : #4443a7;
+    --inp-form-light : #2f2585;
 }
 
-/*=============== layout design or styling================= */
+/*=============== MAIN SECTION DESIGN ================= */
 
 .main{
     width:100%;
@@ -37,6 +37,9 @@ body{
     justify-content: center;
     align-items: center;
 }
+
+/*=============== CALCULATOR LAYOUT DESIGN ================= */
+
 .center_div{
     position: relative;
     padding: 20px;
@@ -48,8 +51,8 @@ body{
     margin-top: 30px;
 }
 
+/*=============== DESIGN FOR CALCULATOR BACKGROUND COLOR CHANGES  ================= */
 
-/* design for calculator background color  */
 
 .center_div .menu_btn{
     position: absolute;
@@ -58,7 +61,6 @@ body{
     font-size: 1.3rem;
     cursor: pointer;
 }
-
 .center_div .bgColors{
     position: absolute;
     top:20px;
@@ -109,7 +111,7 @@ body{
 }
 
 
-/*================ input form design ================ */
+/*================ DESIGN FOR RESENT OR CACHE INPUT ================ */
 
 .input_form{
     padding: 0 5px;
@@ -118,11 +120,18 @@ body{
     position: relative;
     width:100%;
     height: 100px;
+    
+}
+.recent_result #result{
+    width: 100%;
+    height: 100%;
     overflow-y: auto;
     text-align: right;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
+    align-items: flex-end;
+    flex-flow: row wrap;
     font-size: 1.2rem;
     font-weight: 700;
 }
@@ -138,9 +147,13 @@ body{
     visibility: visible;
     opacity: 1;
 }
-.recent_result::-webkit-scrollbar{
+.recent_result #result::-webkit-scrollbar{
     width: 0;
 }
+
+/*================ DESIGN FOR CALCULATION AREA ================ */
+
+
 .form-group{
     margin: 0;
 }
@@ -155,7 +168,7 @@ body{
     font-size: 1rem;
 }
 
-/*================ input button design ================ */
+/*================ CALCULATOR INPUT BUTTON DESIGN ================ */
 
 .input_btn{
     display: grid;
@@ -179,10 +192,12 @@ body{
 
 
 
-/*====== background changes ==============  */
+/*==================== CHANGE BACKGROUND WHEN IT'S SELECTED =========================  */
 
 
-/*======= white background ============== */
+/*==================== CALCULATOR WHITE BACKGROUND ========================= */
+
+
 .center_div.bg-white{
     background-color: var(--white);
 }
@@ -205,9 +220,11 @@ body{
 }
 .bg-white .input_btn button:hover{
     background-color: var(--btn-white-hover);
-    /* color:#fff; */
 }
-/*======= white background ============== */
+
+
+/*==================== CALCULATOR BLUE BACKGROUND ========================= */
+
 .center_div.bg-blue{
     background-color: var(--blue);
 }
@@ -229,9 +246,12 @@ body{
 }
 .bg-blue .input_btn button:hover{
     background-color: var(--btn-blue-hover);
-    /* color:#fff; */
 }
-/*======= white background ============== */
+
+
+/*==================== CALCULATOR LIGHT BLUE BACKGROUND ========================= */
+
+
 .center_div.bg-light-blue{
     background-color: var(--light-blue);
 }

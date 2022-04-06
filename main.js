@@ -50,7 +50,7 @@ window.onload = () => {
     const inp_btn = document.querySelector('.input_btn'),
           btns = document.querySelectorAll('.input_btn button'),
           input = document.getElementById('input_field'),
-          recent = document.getElementById('recent_result'),
+          recent = document.getElementById('result'),
           reset = document.querySelector('.reset')
 
     
@@ -81,7 +81,6 @@ window.onload = () => {
             dot = 0
             setOperation(value)
         }else if( value === '='){
-
             dot = 0
             setResult(input.value)
         }else{
@@ -186,13 +185,13 @@ window.onload = () => {
     function setResult(value){
         let len = (value.split(/[+-/*]/)).length
         
-        console.log(len)
         if(len > 1){
             if(checkParamiter(value.charAt(value.length-2))){
                 value = value.slice(0,-3)
             }
             input.value = eval(value)
             let newVal = input.value
+
             recent.innerHTML += `${value} = <br> ${newVal} <br>`
             reset.classList.add('active')
         }
