@@ -184,18 +184,19 @@ window.onload = () => {
 
     function setResult(value){
         let len = (value.split(/[+-/*]/)).length
-        
+        let newVal = 0;
         if(len > 1){
             if(checkParamiter(value.charAt(value.length-2))){
                 value = value.slice(0,-3)
             }
-            input.value = eval(value)
-            let newVal = Number.parseFloat(input.value)
+            
+            newVal = Number.parseFloat(eval(value))
             if(newVal % 1 === 0){
                 newVal = Number.parseInt(newVal)
             }else{
                 newVal = newVal.toFixed(2)
             }
+            input.value = newVal.toString()
             recent.innerHTML += `${value} = <br> ${newVal} <br>`
             reset.classList.add('active')
         }
