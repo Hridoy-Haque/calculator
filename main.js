@@ -75,8 +75,10 @@ window.onload = () => {
         if(value === 'ac'){
             input.value = '0'
             dot = 0
+            zeroIn = false
         }else if(value === 'clear'){
             clearLast(input.value)
+            zeroIn = false
         }else if(checkParamiter(value)){
             dot = 0
             if(zeroIn){
