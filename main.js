@@ -190,8 +190,12 @@ window.onload = () => {
                 value = value.slice(0,-3)
             }
             input.value = eval(value)
-            let newVal = input.value
-
+            let newVal = Number.parseFloat(input.value)
+            if(newVal % 1 === 0){
+                newVal = Number.parseInt(newVal)
+            }else{
+                newVal = newVal.toFixed(2)
+            }
             recent.innerHTML += `${value} = <br> ${newVal} <br>`
             reset.classList.add('active')
         }
